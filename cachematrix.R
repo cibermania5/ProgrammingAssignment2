@@ -50,8 +50,6 @@ cacheSolve <- function(x, ...) {
 ## test case
 ##> rm(x)
 ##> X=matrix(3:6,2,2)
-##> x$get()
-##Error: objeto 'x' no encontrado
 ##> x<-makeCacheMatrix(X)
 ##> x$get()
  ##    [,1] [,2]
