@@ -46,3 +46,51 @@ cacheSolve <- function(x, ...) {
             x$setinv(m)   ## caching...
             m    ## return the value...
 }
+
+## test case
+##> rm(x)
+##> X=matrix(3:6,2,2)
+##> x$get()
+##Error: objeto 'x' no encontrado
+##> x<-makeCacheMatrix(X)
+##> x$get()
+ ##    [,1] [,2]
+##[1,]    3    5
+##[2,]    4    6
+##> cacheSolve(x)
+##     [,1] [,2]
+##[1,]   -3  2.5
+##[2,]    2 -1.5
+##> cacheSolve(x)
+##getting cached data
+##     [,1] [,2]
+##[1,]   -3  2.5
+##[2,]    2 -1.5
+##
+
+##> 
+
+##Testing with Octave:
+
+## octave:1> A=[
+## > 3 5
+## > 4 6
+## > ]
+## A =
+
+##    3   5
+##    4   6
+
+## octave:2> pinv(A)
+## ans =
+
+##   -3.0000   2.5000
+##    2.0000  -1.5000
+
+##   octave:3> A*pinv(A)
+##   ans =
+
+##      1.0000e+00   1.7764e-15
+##     -3.5527e-15   1.0000e+00
+
+
